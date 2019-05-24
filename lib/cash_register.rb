@@ -2,8 +2,6 @@ require "pry"
 class CashRegister
 attr_accessor :total, :discount
 
-
-
   def initialize(discount = 0)
     @total = 0
     @discount = discount
@@ -26,9 +24,7 @@ attr_accessor :total, :discount
 
   def items
     item_titles = []
-    @items.each do |item|
-      item[2].times {item_titles << item[0]}
-    end
+    @items.each {|item| item[2].times {item_titles << item[0]}}
     item_titles
   end
 
@@ -36,7 +32,6 @@ attr_accessor :total, :discount
     price = @items[-1][1]
     quantity = @items[-1][2]
     @total = @total - (price * quantity)
-    @items.pop
   end
 
 end
